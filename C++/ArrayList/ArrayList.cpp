@@ -17,22 +17,23 @@ int main()
     ArrayList obj(2);
     int choice, ele, pos;
     bool n = true, flag = false;
+    int element; // Variable to store the result of elementAt
     while (n)
     {
-        cout << "1 . Insert an element\n2 . Delete\n3 . Access element\n4 . Show List\n5 . Exit\nEnter your choice : ";
+        cout << "1. Insert an element\n2. Delete\n3. Access element\n4. Show List\n5. Exit\nEnter your choice: ";
         cin >> choice;
         switch (choice)
         {
         case 1:
-            cout << "Enter the position and element to enter : ";
+            cout << "Enter the position and element to enter: ";
             cin >> pos >> ele;
             if (obj.insert(ele, pos))
-                cout << "Operation Successfull!" << endl;
+                cout << "Operation Successful!" << endl;
             else
-                cout << "Operation Failed!\nEnter a valid position" << endl;
+                cout << "Operation Failed! Enter a valid position." << endl;
             break;
         case 2:
-            cout << "Enter removing position : ";
+            cout << "Enter removing position: ";
             cin >> pos;
             if (obj.remove(pos) == INT_MIN)
                 cout << "Failed!" << endl;
@@ -40,10 +41,11 @@ int main()
                 cout << "Done!" << endl;
             break;
         case 3:
-            cout << "Enter the position : ";
+            cout << "Enter the position: ";
             cin >> pos;
-            if (obj.elementAt(pos) != INT_MIN)
-                cout << "Element is : " << obj.elementAt(pos) << endl;
+            element = obj.elementAt(pos); // Store the result of elementAt in a variable
+            if (element != INT_MIN)
+                cout << "Element is: " << element << endl;
             else
                 cout << "Failed" << endl;
             break;
@@ -59,7 +61,7 @@ int main()
         }
         if (flag)
             break;
-        cout << "Want to enter again (1 - YES 0-NO) : ";
+        cout << "Want to enter again (1 - YES, 0 - NO)? ";
         cin >> n;
     }
     return 0;
